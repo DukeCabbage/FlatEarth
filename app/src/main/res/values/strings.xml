@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FlatEarth</string>
+
+    <string name="three_decimal">%1$.3f</string>
+</resources>

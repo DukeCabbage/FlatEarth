@@ -1,0 +1,128 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'project-report'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    def versionMajor = 0
+    def versionMinor = 0
+    def versionPatch = 1
+    def buildNumber = 0
+
+    def versionCodeBase = ((versionMajor * 100 + versionMinor) * 100 + versionPatch) * 100 + buildNumber
+    def debugVersionNameSuffix = "debug_${Character.toChars(97 + buildNumber)}"
+    println "Version code : $versionCodeBase"
+    println "Version name suffix: ${Character.toChars(97 + buildNumber)}"
+    println ""
+
+    defaultConfig {
+        applicationId "com.cabbage.flatearth"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode = versionCodeBase
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    File propsFile = rootProject.file("keystore.properties")
+    boolean localKeyStore = propsFile.exists()
+    if (localKeyStore) {
+        println 'Using local key store'
+
+        Properties properties = new Properties()
+        properties.load(propsFile.newDataInputStream())
+
+        signingConfigs {
+            debug {
+                storeFile = file(properties.getProperty("debugStoreFile"))
+                storePassword = properties.getProperty("debugStorePassword")
+                keyAlias = properties.getProperty("debugKeyAlias")
+                keyPassword = properties.getProperty("debugKeyPassword")
+            }
+
+            release {
+                storeFile = file(properties.getProperty("releaseStoreFile"))
+                storePassword = properties.getProperty("releaseStorePassword")
+                keyAlias = properties.getProperty("releaseKeyAlias")
+                keyPassword = properties.getProperty("releaseKeyPassword")
+
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            versionNameSuffix debugVersionNameSuffix
+
+            if (localKeyStore) signingConfig signingConfigs.debug
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            if (localKeyStore) signingConfig signingConfigs.release
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+final support_library_version = '26.1.0'
+final dagger_version = '2.11'
+final butter_knife_version = '8.8.1'
+final dart_version = '2.0.+'
+final timber_version = '4.5.1'
+
+final rx_java_version = '2.1.0'
+final rx_android_version = '2.0.1'
+final rx_kotlin_version = '2.0.3'
+final rx_permission = '0.9.4@aar'
+final rx_binding = '2.0.0'
+final rx_preferences = '2.0.0-RC2'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    compile "com.android.support:design:$support_library_version"
+
+    // ReactiveX
+    compile "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
+    compile "io.reactivex.rxjava2:rxjava:$rx_java_version"
+    compile "io.reactivex.rxjava2:rxandroid:$rx_android_version"
+
+    compile "com.tbruyelle.rxpermissions2:rxpermissions:$rx_permission"
+    compile "com.jakewharton.rxbinding2:rxbinding:$rx_binding"
+    compile "com.f2prateek.rx.preferences2:rx-preferences:$rx_preferences"
+
+    // Dagger 2
+    compile "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    // Butter Knife
+    compile "com.jakewharton:butterknife:$butter_knife_version"
+    kapt "com.jakewharton:butterknife-compiler:$butter_knife_version"
+
+    // Dart
+    compile "com.f2prateek.dart:dart:$dart_version"
+    provided "com.f2prateek.dart:dart-processor:$dart_version"
+
+    // Timber
+    compile "com.jakewharton.timber:timber:$timber_version"
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}
