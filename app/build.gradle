@@ -109,8 +109,8 @@ dependencies {
     implementation rx.preferences
 
     // Dagger 2
-    implementation dagger.lib
-    kapt dagger.compiler
+//    implementation dagger.lib
+//    kapt dagger.compiler
 
     // Butter Knife
     implementation butterknife.lib
@@ -122,8 +122,4 @@ dependencies {
     // AR core
     implementation ar.core
     implementation ar.sceneform
-
-//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-//        exclude group: 'com.android.support', module: 'support-annotations'
-//    })
 }

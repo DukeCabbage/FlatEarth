@@ -1,4 +1,4 @@
-package com.cabbage.flatearth
+package com.cabbage.flatearth.misc
 
 import timber.log.Timber
 

@@ -1,4 +1,4 @@
-package com.cabbage.flatearth;
+package com.cabbage.flatearth.ui.hud;
 
 import android.content.Context;
 import android.graphics.BlurMaskFilter;
@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.cabbage.flatearth.R;
 
 import timber.log.Timber;
 

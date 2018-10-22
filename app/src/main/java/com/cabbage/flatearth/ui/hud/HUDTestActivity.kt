@@ -1,13 +1,13 @@
-package com.cabbage.flatearth
+package com.cabbage.flatearth.ui.hud
 
 import android.os.Bundle
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
+import com.cabbage.flatearth.R
 import com.cabbage.flatearth.misc.checkIsSupportedDeviceOrFinish
 import kotlinx.android.synthetic.main.activity_hud_test.*
-import timber.log.Timber
 
 class HUDTestActivity : AppCompatActivity() {
 
