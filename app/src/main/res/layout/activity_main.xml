@@ -4,31 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cabbage.flatearth.MainActivity"
-    tools:ignore="ContentDescription">
+    tools:context="com.cabbage.flatearth.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/camera_view"
+    <fragment
+        android:id="@+id/ux_fragment"
+        android:name="com.google.ar.sceneform.ux.ArFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:id="@+id/fl_camera_overlay"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.54"
-        android:background="@android:color/black">
-
-    </FrameLayout>
-
-    <ImageButton
-        android:id="@+id/imgClose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|top"
-        android:background="@android:drawable/ic_menu_close_clear_cancel"
-        android:padding="20dp"/>
+        android:layout_height="match_parent" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

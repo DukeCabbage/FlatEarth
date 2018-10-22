@@ -10,7 +10,7 @@ ext {
 
     ar = [
             core     : "com.google.ar:core:1.5.0",
-            sceneform: "com.google.ar.sceneform.ux:sceneform-ux:1.5.1"
+            sceneform: "com.google.ar.sceneform.ux:sceneform-ux:$sceneform_verison"
     ]
 
     rx_java_version = "2.2.2"

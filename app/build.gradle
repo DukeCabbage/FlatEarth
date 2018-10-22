@@ -123,3 +123,9 @@ dependencies {
     implementation ar.core
     implementation ar.sceneform
 }
+
+apply plugin: "com.google.ar.sceneform.plugin"
+sceneform.asset('sampledata/models/andy.obj',
+        'default',
+        'sampledata/models/andy.sfa',
+        'src/main/res/raw/andy')
