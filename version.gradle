@@ -1,0 +1,62 @@
+private File getVersionFile() {
+    def propsFile = file("version.properties")
+    return propsFile
+}
+
+ext.getVersionProps = {
+    def versionProps = new Properties()
+    def versionPropsFile = getVersionFile()
+
+    if (versionPropsFile.exists()) {
+        versionProps.load(versionPropsFile.newDataInputStream())
+    }
+
+    if (versionProps["versionMajor"] == null) versionProps["versionMajor"] = "0"
+    if (versionProps["versionMinor"] == null) versionProps["versionMinor"] = "0"
+    if (versionProps["versionPatch"] == null) versionProps["versionPatch"] = "1"
+    if (versionProps["buildNumber"] == null) versionProps["buildNumber"] = "1"
+
+    return versionProps
+}
+
+ext.getAppVersionName = { props ->
+    def versionMajor = props["versionMajor"].toInteger()
+    def versionMinor = props["versionMinor"].toInteger()
+    def versionPatch = props["versionPatch"].toInteger()
+
+    return "${versionMajor}.${versionMinor}.${versionPatch}"
+}
+
+ext.getAppVersionNameDebugSuffix = { props ->
+    def buildNumber = props["buildNumber"].toInteger()
+
+    return "-${Character.toChars(96 + buildNumber)}"
+}
+
+ext.getAppVersionCode = { props ->
+    def versionMajor = props["versionMajor"].toInteger()
+    def versionMinor = props["versionMinor"].toInteger()
+    def versionPatch = props["versionPatch"].toInteger()
+    def buildNumber = props["buildNumber"].toInteger()
+
+    return ((versionMajor * 100 + versionMinor) * 100 + versionPatch) * 100 + buildNumber
+}
+
+task appVersion {
+
+    doLast {
+        def props = getVersionProps()
+
+        if (project.hasProperty("major")) props.setProperty("versionMajor", major.toString())
+        if (project.hasProperty("minor")) props.setProperty("versionMinor", minor.toString())
+        if (project.hasProperty("patch")) props.setProperty("versionPatch", patch.toString())
+        if (project.hasProperty("buildN")) props.setProperty("buildNumber", buildN.toString())
+
+        println props
+        println "Version name: " + getAppVersionName(props)
+        println "Version name debug: " + getAppVersionName(props) + getAppVersionNameDebugSuffix(props)
+        println "Version code: " + getAppVersionCode(props)
+
+        props.store(getVersionFile().newWriter(), null)
+    }
+}

@@ -1,0 +1,41 @@
+ext {
+    support_library_version = "28.0.0"
+
+    kotl = [
+            jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    ]
+
+    rx_java_version = "2.2.2"
+    rx_android_version = "2.1.0"
+    rx_kotlin_version = "2.3.0"
+    rx_permission = "0.10.2"
+    rx_binding = "2.0.0"
+    rx_preferences = "2.0.0"
+
+    rx = [
+            java       : "io.reactivex.rxjava2:rxjava:$rx_java_version",
+            android    : "io.reactivex.rxjava2:rxandroid:$rx_android_version",
+            kotlin     : "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version",
+
+            permission : "com.github.tbruyelle:rxpermissions:$rx_permission",
+            binding    : "com.jakewharton.rxbinding2:rxbinding:$rx_binding",
+            preferences: "com.f2prateek.rx.preferences2:rx-preferences:$rx_preferences"
+    ]
+
+    dagger_version = "2.18"
+
+    dagger = [
+            lib     : "com.google.dagger:dagger:$dagger_version",
+            compiler: "com.google.dagger:dagger-compiler:$dagger_version"
+    ]
+
+    butter_knife_version = "8.8.1"
+
+    butterknife = [
+            lib      : "com.jakewharton:butterknife:$butter_knife_version",
+            compiler: "com.jakewharton:butterknife-compiler:$butter_knife_version"
+    ]
+
+    timber_version = "4.7.1"
+    timber = "com.jakewharton.timber:timber:$timber_version"
+}

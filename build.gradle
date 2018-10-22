@@ -1,9 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.gradle_version = '3.1.2'
-    ext.kotlin_version = '1.2.41'
-
     repositories {
         jcenter()
         google()
@@ -18,6 +15,7 @@ allprojects {
     repositories {
         jcenter()
         google()
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -25,10 +23,5 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-// Define versions in a single place
-ext {
-    // Sdk and tools
-    minSdkVersion = 21
-    targetSdkVersion = 27
-    compileSdkVersion = 27
-}
+apply from: "dependencies.gradle"
+apply from: "version.gradle"
