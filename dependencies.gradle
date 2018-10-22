@@ -8,6 +8,11 @@ ext {
             jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     ]
 
+    ar = [
+            core     : "com.google.ar:core:1.5.0",
+            sceneform: "com.google.ar.sceneform.ux:sceneform-ux:1.5.1"
+    ]
+
     rx_java_version = "2.2.2"
     rx_android_version = "2.1.0"
     rx_kotlin_version = "2.3.0"

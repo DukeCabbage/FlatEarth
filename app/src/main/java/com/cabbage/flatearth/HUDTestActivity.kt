@@ -5,18 +5,22 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.View
+import com.cabbage.flatearth.misc.checkIsSupportedDeviceOrFinish
 import kotlinx.android.synthetic.main.activity_hud_test.*
 import timber.log.Timber
 
 class HUDTestActivity : AppCompatActivity() {
 
-//    private var _xDelta: Int = 0
+    //    private var _xDelta: Int = 0
     private var _yDelta: Int = 0
 
     private var mTopMargin: Int = 360
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!checkIsSupportedDeviceOrFinish()) return
+
+
         setContentView(R.layout.activity_hud_test)
         // disable hardware acceleration
         findViewById<View>(android.R.id.content).setLayerType(View.LAYER_TYPE_SOFTWARE, null)
@@ -25,7 +29,7 @@ class HUDTestActivity : AppCompatActivity() {
         lp.topMargin = mTopMargin
 
         theLine.setOnTouchListener { view, event ->
-//            val rawX = event.rawX.toInt()
+            //            val rawX = event.rawX.toInt()
             val rawY = event.rawY.toInt()
             when (event.action and MotionEvent.ACTION_MASK) {
                 MotionEvent.ACTION_DOWN -> {

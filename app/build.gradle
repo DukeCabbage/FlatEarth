@@ -20,6 +20,27 @@ android {
         versionCode getAppVersionCode(versionProps)
         versionName getAppVersionName(versionProps)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            /*
+             * Sceneform is available for the following ABIs:
+             * 'arm64-v8a', 'armeabi-v7a', 'x86_64' and 'x86'.
+             * Your application should include the ABIs most appropriate to
+             * minimize APK size. Listing 'arm64-v8a' is recommended.
+             *
+             * This sample app includes two ABIs:
+             * 1. 'arm64-v8a' to run on devices
+             * 2. 'x86' to run in the Android emulator
+             */
+            abiFilters 'arm64-v8a', 'x86'
+        }
+    }
+
+    compileOptions {
+        // Sceneform libraries use language constructs from Java 8.
+        // Add these compile options if targeting minSdkVersion < 26.
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     File propsFile = rootProject.file("keystore.properties")
@@ -97,6 +118,10 @@ dependencies {
 
     // Timber
     implementation timber
+
+    // AR core
+    implementation ar.core
+    implementation ar.sceneform
 
 //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
 //        exclude group: 'com.android.support', module: 'support-annotations'
