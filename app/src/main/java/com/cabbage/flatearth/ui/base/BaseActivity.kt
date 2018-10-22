@@ -1,7 +1,7 @@
 package com.cabbage.flatearth.ui.base
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.cabbage.flatearth.MyApplication
 import com.cabbage.flatearth.dagger.ActivityComponent
 import com.cabbage.flatearth.dagger.ActivityModule

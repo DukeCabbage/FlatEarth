@@ -5,7 +5,7 @@ apply plugin: "kotlin-android-extensions"
 apply plugin: "project-report"
 
 android {
-    compileSdkVersion androidTargetSdkVersion.toInteger()
+    compileSdkVersion androidCompileSdkVersion.toInteger()
     buildToolsVersion androidBuildToolsVersion
 
     def versionProps = getVersionProps()
@@ -14,12 +14,12 @@ android {
     defaultConfig {
         applicationId "com.cabbage.flatearth"
 
-        minSdkVersion androidMinimumSdkVersion
+        minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
 
         versionCode getAppVersionCode(versionProps)
         versionName getAppVersionName(versionProps)
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     File propsFile = rootProject.file("keystore.properties")
@@ -76,7 +76,7 @@ dependencies {
 
     implementation kotl.jdk8
 
-    implementation "com.android.support:design:$support_library_version"
+    implementation google.material
 
     // ReactiveX
     implementation rx.java

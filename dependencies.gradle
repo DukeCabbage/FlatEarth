@@ -1,5 +1,8 @@
 ext {
-    support_library_version = "28.0.0"
+
+    google = [
+            material: "com.google.android.material:material:1.0.0"
+    ]
 
     kotl = [
             jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
@@ -32,7 +35,7 @@ ext {
     butter_knife_version = "8.8.1"
 
     butterknife = [
-            lib      : "com.jakewharton:butterknife:$butter_knife_version",
+            lib     : "com.jakewharton:butterknife:$butter_knife_version",
             compiler: "com.jakewharton:butterknife-compiler:$butter_knife_version"
     ]
 
