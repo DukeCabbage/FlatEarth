@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="colorPrimary40Opaque">#663F51B5</color>
+
     <color name="colorGreenA400">#00E676</color>
     <color name="colorGreenA700">#00C853</color>
 
