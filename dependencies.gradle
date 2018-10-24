@@ -4,6 +4,11 @@ ext {
             material: "com.google.android.material:material:1.0.0"
     ]
 
+    firebase = [
+            core   : "com.google.firebase:firebase-core:16.0.4",
+            storage: "com.google.firebase:firebase-storage:16.0.3"
+    ]
+
     kotl = [
             jdk8: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     ]
@@ -44,7 +49,7 @@ ext {
             compiler: "com.github.bumptech.glide:compiler:$glide_version"
     ]
 
-    butter_knife_version = "8.8.1"
+    butter_knife_version = "9.0.0-SNAPSHOT"
 
     butterknife = [
             lib     : "com.jakewharton:butterknife:$butter_knife_version",

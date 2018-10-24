@@ -115,6 +115,9 @@ dependencies {
     implementation glide.glide
     kapt glide.compiler
 
+    implementation firebase.core
+    implementation firebase.storage
+
     // Butter Knife
     implementation butterknife.lib
     kapt butterknife.compiler
@@ -132,3 +135,5 @@ sceneform.asset('sampledata/models/andy.obj',
         'default',
         'sampledata/models/andy.sfa',
         'src/main/res/raw/andy')
+
+apply plugin: "com.google.gms.google-services"

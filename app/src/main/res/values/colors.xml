@@ -12,7 +12,12 @@
     <color name="colorLightGreenA400">#76FF03</color>
     <color name="colorLightGreenA700">#64DD17</color>
 
+    <color name="colorLightGreenA400o15">#2676FF03</color>
+    <color name="colorLightGreenA700o10">#1A76FF03</color>
+
     <color name="colorGray800">#424242</color>
     <color name="colorGray600">#757575</color>
     <color name="colorWhiteSmoke">#F5F5F5</color>
+
+    <color name="preview_frag_bg">@color/colorLightGreenA400o15</color>
 </resources>

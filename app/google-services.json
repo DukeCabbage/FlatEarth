@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "796660620836",
+    "firebase_url": "https://projectflatearth.firebaseio.com",
+    "project_id": "projectflatearth",
+    "storage_bucket": "projectflatearth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796660620836:android:6da16d1163d764d9",
+        "android_client_info": {
+          "package_name": "com.cabbage.flatearth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796660620836-lot3c3ug636ocof6deqvuh14fkc00qht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cabbage.flatearth",
+            "certificate_hash": "419acf8974f7f756cfb48fc5d51be32319c6ccb6"
+          }
+        },
+        {
+          "client_id": "796660620836-giqo05nrtjv5qt6976mmpmhg5r4tedd0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7nX8mPhiRsP1AMENFCSXxy42b9FiLyRc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796660620836-giqo05nrtjv5qt6976mmpmhg5r4tedd0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

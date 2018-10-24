@@ -12,6 +12,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import com.cabbage.flatearth.R
 import kotlinx.android.synthetic.main.activity_dashboard.*
+import kotlinx.android.synthetic.main.include_base_app_bar.*
 import kotlinx.android.synthetic.main.include_readings.*
 
 class DashboardActivity : AppCompatActivity(),

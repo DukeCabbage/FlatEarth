@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/preview_frag_width"
+    android:layout_height="match_parent"
+    android:background="@color/preview_frag_bg">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/preview_list_padding_h"
+        android:paddingTop="@dimen/preview_list_padding_v"
+        android:paddingEnd="@dimen/preview_list_padding_h"
+        android:paddingBottom="@dimen/preview_list_padding_v"
+        android:scrollbars="none" />
+
+</FrameLayout>
