@@ -112,6 +112,9 @@ dependencies {
 //    implementation dagger.lib
 //    kapt dagger.compiler
 
+    implementation glide.glide
+    kapt glide.compiler
+
     // Butter Knife
     implementation butterknife.lib
     kapt butterknife.compiler
