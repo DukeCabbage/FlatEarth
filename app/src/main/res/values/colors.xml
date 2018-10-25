@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">@color/colorBlueGray700</color>
 
     <color name="colorPrimary40Opaque">#663F51B5</color>
 
@@ -12,12 +12,16 @@
     <color name="colorLightGreenA400">#76FF03</color>
     <color name="colorLightGreenA700">#64DD17</color>
 
-    <color name="colorLightGreenA400o15">#2676FF03</color>
-    <color name="colorLightGreenA700o10">#1A76FF03</color>
+    <!--<color name="colorLightGreenA400o15">#2618FFFF</color>-->
+    <!--<color name="colorLightGreenA700o10">#1A76FF03</color>-->
+
+    <color name="colorCyanA200">#18FFFF</color>
+
+    <color name="colorBlueGray700">#455A64</color>
 
     <color name="colorGray800">#424242</color>
     <color name="colorGray600">#757575</color>
     <color name="colorWhiteSmoke">#F5F5F5</color>
 
-    <color name="preview_frag_bg">@color/colorLightGreenA400o15</color>
+    <color name="preview_frag_bg">#2618FFFF</color>
 </resources>

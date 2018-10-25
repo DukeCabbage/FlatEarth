@@ -8,6 +8,7 @@ const val testUrl = "https://firebasestorage.googleapis.com/v0/b/" +
 val fileHierarchy = mapOf(
         "test" to listOf("8842-toronto-skyline.jpg"),
         "cyberpunk" to listOf("blade-runner-2049.jpg",
+                              "futuristic-portrait.jpg",
                               "cyberpunk-wallpapers-0.jpg",
                               "cyberpunk-wallpapers-1.jpg",
                               "cyberpunk-wallpapers-2.jpg",
