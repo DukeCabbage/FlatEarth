@@ -1,4 +1,4 @@
-package com.cabbage.flatearth.ui;
+package com.cabbage.flatearth.ui.gallery;
 
 import android.content.Context;
 import android.graphics.Rect;

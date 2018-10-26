@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cabbage.flatearth.MainActivity">
+    tools:context="com.cabbage.flatearth.ui.main.MainActivity">
 
     <fragment
         android:id="@+id/ux_fragment"

@@ -1,5 +1,6 @@
 package com.cabbage.flatearth.ui.gallery
 
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,8 +15,9 @@ import butterknife.ButterKnife
 import butterknife.Unbinder
 import com.cabbage.flatearth.R
 import com.cabbage.flatearth.mock.fileHierarchy
-import com.cabbage.flatearth.ui.SkipLastDividerItemDecoration
 import com.cabbage.flatearth.ui.gallery.data.PreviewItem
+import timber.log.Timber
+import java.lang.RuntimeException
 
 class GalleryFragment : Fragment() {
 
@@ -26,6 +28,17 @@ class GalleryFragment : Fragment() {
     lateinit var rvGallery: RecyclerView
 
     private var unbinder: Unbinder? = null
+
+    private lateinit var callback: Callback
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is Callback) {
+            callback = context
+        } else {
+            throw RuntimeException("Need callback")
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
@@ -46,7 +59,7 @@ class GalleryFragment : Fragment() {
 
     private fun setupRecyclerView() {
 
-        val dirName = "cyberpunk"
+        val dirName = "tree"
         val fileNames = fileHierarchy[dirName] ?: return
 
         val dataSet = List(fileNames.size) { index ->
@@ -57,10 +70,14 @@ class GalleryFragment : Fragment() {
         val rvViewManager = LinearLayoutManager(context)
         val rvDividerDeco = SkipLastDividerItemDecoration(context, rvViewManager.orientation, false)
         rvDividerDeco.setDrawable(divider)
-        val rvViewAdapter = GalleryPreviewAdapter(dataSet)
+        val rvViewAdapter = GalleryPreviewAdapter(dataSet, callback)
 
         rvGallery.layoutManager = rvViewManager
         rvGallery.addItemDecoration(rvDividerDeco)
         rvGallery.adapter = rvViewAdapter
+    }
+
+    interface Callback {
+        fun imageSelected(url: String)
     }
 }
